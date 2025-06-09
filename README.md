@@ -10,8 +10,8 @@ A brief description of your project and its purpose.
 
 | Inline formatting | Shortcut |
 | ---                         | ---   |
-| - ✅ Authentication         | Done  |
-| - ✅ React components        | Done  |
+| - ✅ React icons            | Done  |
+| - ✅ React components       | Done  |
 | - ✅ React Hooks            | Done  |
 
 
