@@ -1,7 +1,7 @@
 ## Galleria🛬
 
 
-# 🚀 Project Chat
+# 🚀 Project Gallery
 
 A brief description of your project and its purpose.
 
