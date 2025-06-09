@@ -1,4 +1,4 @@
-## chat enjoy 🛬
+## Galleria🛬
 
 
 # 🚀 Project Chat
