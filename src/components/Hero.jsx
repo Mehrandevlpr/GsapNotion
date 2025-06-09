@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
+import Button from './Button';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +41,7 @@ const Hero = () => {
   useGSAP(() => {
     if(hasClicked){
       gsap.set('#next-video',{visibility:'visible'});
+      gsap.set('#video-frame', { clearProps: 'all' });
 
       gsap.to('#next-video',{
         transformOrigin:'center center',
@@ -83,10 +84,10 @@ const Hero = () => {
 
 
   return (
-    <div className='relative h-dvh w-screen overflow-x-hidden'>
+    <div className='relative h-dvh w-screen overflow-x-hidden overflow-y-hidden' id='gallery'>
 
       {isLoading  && (
-        <div className='flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50'>
+        <div className='flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-transparent'>
             <div className="three-body">
               <div className="three-body__dot" />
               <div className="three-body__dot" />
@@ -95,7 +96,7 @@ const Hero = () => {
         </div>
       )}
 
-       <div id='video-frame' className='relative z-10 h-dvh w-screen overflow-hidden bg-blue-100'>
+       <div id='video-frame' className='relative z-10 h-dvh w-screen overflow-hidde bg-transparent'>
           <div>
              <div className='mask-clip-path left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute z-50 size-64 cursor-pointer rounded-lg'>
                 <div onClick={handelMiniVideoClick} className='origin-center scale-50 opacity-0 transition-all
@@ -105,6 +106,8 @@ const Hero = () => {
                       src={getVideoSrc(upcomingMiniVideoIndex)}
                       loop
                       muted
+                      autoPlay
+                      loading="lazy"
                       id='current-video'
                       className='size-64 origin-center scale-150 object-cover mask-image object-center rounded-lg'
                       onLoadedData={handelVideoLoad}
@@ -116,6 +119,7 @@ const Hero = () => {
                       src={getVideoSrc(currentIndex)}
                       loop
                       muted
+                      loading="lazy"
                       id='next-video'
                       className='left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute invisible z-20 object-cover object-center'
                       onLoadedData={handelVideoLoad}
@@ -126,16 +130,17 @@ const Hero = () => {
                       loop
                       autoPlay
                       muted
+                      loading="lazy"
                       className='absolute left-0 top-0 size-full object-cover object-center'
                       onLoadedData={handelVideoLoad}
                    />
           </div>
           <h1 className='special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-100'>
-            <b>A</b>rchive
+            archiv<b>e</b>
           </h1>
           <div className='absolute left-0 top-0 z-40 size-full'>
             <div className='mt-24 px-5 sm:px-10'>
-              <h1 className='special-font hero-heading text-stone-500'>Galleri<b>A</b></h1>
+              <h2 className='special-font hero-heading text-stone-500'>Galleri<b>A</b></h2>
               <p className='mb-5 max-w-64 font-robert-regular text-stone-400'> Serach through the History !!!
                 <br /> Choose your style
               </p>
@@ -148,9 +153,9 @@ const Hero = () => {
             </div>
           </div>
        </div>
-       <h1 className='special-font hero-heading absolute bottom-5 right-5 text-black'>
-            <b>A</b>rchive
-        </h1>
+       <h3 className='special-font hero-heading absolute bottom-5 right-5 text-black'>
+            archiv<b>e</b>
+        </h3>
     </div>
   )
 }
