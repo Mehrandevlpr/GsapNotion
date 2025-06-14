@@ -8,7 +8,7 @@ A brief description of your project and its purpose.
 ## 📌 Features
 
 
-| Inline formatting | Shortcut |
+| Features | Status |
 | ---                         | ---   |
 | - ✅ React icons            | Done  |
 | - ✅ React components       | Done  |
